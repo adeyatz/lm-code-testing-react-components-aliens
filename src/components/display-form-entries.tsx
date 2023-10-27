@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 interface DisplayFormEntriesProps {
   formTextEntries: string;
@@ -12,19 +12,29 @@ const DisplayFormEntries: React.FC<DisplayFormEntriesProps> = ({
   setSubmit,
 }) => {
   const formData = useRef(`Enter Submit button to see the data`);
-  if (inSubmit) {
-    formData.current = formTextEntries;
-    setSubmit(false);
-  }
+
+  console.log(`DisplayFormEntries ${inSubmit}`);
+
+  useEffect(() => {
+    if (inSubmit) {
+      formData.current = formTextEntries;
+      setSubmit(false);
+      console.log(`setSubmit(false)`);
+    }
+  });
 
   return (
     <>
-      <label htmlFor="displayFormEntries">Form Entry</label>
+      <label htmlFor="displayFormEntries">Submitted Entry</label>
       <textarea
         id="displayFormEntries"
         cols={40}
         rows={5}
         value={formData.current}
+        readOnly={true}
+        //        onValueChange={setSubmit (false)}
+        // onChange={() => setSubmit(false)}
+        // onClick={() => setSubmit(false)}
       />
     </>
   );

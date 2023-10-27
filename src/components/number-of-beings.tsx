@@ -1,9 +1,9 @@
-interface NumberOrfBeingsProps {
+export interface NumberOfBeingsProps {
   numberOfBeings: string;
   onChangeNumberOfBeings: (value: string) => void;
 }
 
-const NumberOfBeings: React.FC<NumberOrfBeingsProps> = ({
+const NumberOfBeings: React.FC<NumberOfBeingsProps> = ({
   numberOfBeings,
   onChangeNumberOfBeings,
 }) => (
