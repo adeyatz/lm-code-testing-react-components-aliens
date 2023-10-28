@@ -52,11 +52,12 @@ describe(`<NumberOfBeings />`, () => {
 
   test(`Given the user types 'My New String' 
     When the component  is rendered
-    Then the update function should be called with 'My New String'`, async () => {
-    const mockUpdate = jest.fn();
+    Then onChangeNumberOfBeings should be called with 
+    each character in turn from 'My New String'`, async () => {
+    const mockOnChangeNumberOfBeings = jest.fn();
     const requiredProps: NumberOfBeingsProps = {
       numberOfBeings: "",
-      onChangeNumberOfBeings: mockUpdate,
+      onChangeNumberOfBeings: mockOnChangeNumberOfBeings,
     };
 
     render(<NumberOfBeings {...requiredProps} />);
@@ -67,8 +68,14 @@ describe(`<NumberOfBeings />`, () => {
     const mockUser = userEvent.setup();
     await mockUser.type(input, typedString);
 
-    expect(mockUpdate).toBeCalledTimes(typedString.length);
-    expect(mockUpdate).nthCalledWith(1, "M");
-    expect(mockUpdate).nthCalledWith(13, "g");
+    expect(mockOnChangeNumberOfBeings).toBeCalledTimes(typedString.length);
+    for (let i = 0; i < typedString.length; i++) {
+      expect(mockOnChangeNumberOfBeings).nthCalledWith(
+        i + 1,
+        typedString.charAt(i)
+      );
+    }
+    // expect(mockUpdate).nthCalledWith(1, "M");
+    // expect(mockUpdate).nthCalledWith(13, "g");
   });
 });
