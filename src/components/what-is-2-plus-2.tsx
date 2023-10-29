@@ -1,9 +1,9 @@
-interface WhatIs2Plus2Props {
+export interface WhatIs2Plus2Props {
   answer: string;
   onChangeSelection: (value: string) => void;
 }
 
-const WhatIs2Plus2: React.FC<WhatIs2Plus2Props> = ({
+export const WhatIs2Plus2: React.FC<WhatIs2Plus2Props> = ({
   answer,
   onChangeSelection,
 }) => (
@@ -19,5 +19,3 @@ const WhatIs2Plus2: React.FC<WhatIs2Plus2Props> = ({
     </select>
   </>
 );
-
-export default WhatIs2Plus2;

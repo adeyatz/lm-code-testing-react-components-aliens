@@ -3,7 +3,7 @@ import W12MHeader from "./W12MHeader";
 import SpeciesName from "./species-name";
 import PlanetName from "./planet-name";
 import NumberOfBeings from "./number-of-beings";
-import WhatIs2Plus2 from "./what-is-2-plus-2";
+import { WhatIs2Plus2 } from "./what-is-2-plus-2";
 import ReasonForSparing from "./reason-for-sparing";
 import DisplayFormEntries from "./display-form-entries";
 
