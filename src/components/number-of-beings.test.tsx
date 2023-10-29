@@ -14,8 +14,8 @@ describe(`<NumberOfBeings />`, () => {
 
     render(<NumberOfBeings {...requiredProps} />);
 
-    const someHeaderText = screen.getByText(/Number of Beings/i);
-    expect(someHeaderText).toBeInTheDocument();
+    const someText = screen.getByText(/Number of Beings/i);
+    expect(someText).toBeInTheDocument();
   });
 
   test(`Given the text value '1 for numberOfBeings
