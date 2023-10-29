@@ -1,4 +1,4 @@
-interface SpeciesNameProps {
+export interface SpeciesNameProps {
   speciesName: string;
   onChangeSpeciesName: (value: string) => void;
 }
