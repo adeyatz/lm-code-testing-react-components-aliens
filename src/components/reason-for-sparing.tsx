@@ -1,4 +1,4 @@
-interface ReasonForSparingProps {
+export interface ReasonForSparingProps {
   reason: string;
   onChangeReason: (value: string) => void;
 }
