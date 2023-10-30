@@ -9,7 +9,10 @@ describe(`<SpeciesName />`, () => {
         Then the text 'Species Name' should be present`, () => {
     const requiredProps: SpeciesNameProps = {
       speciesName: "earth",
-      onChangeSpeciesName: () => {}, // jest.fn(),
+      onChangeSpeciesName: () => {},
+      validate: () => {
+        return [];
+      }, // jest.fn(),
     };
 
     render(<SpeciesName {...requiredProps} />);
@@ -25,6 +28,9 @@ describe(`<SpeciesName />`, () => {
     const requiredProps: SpeciesNameProps = {
       speciesName: testSpeciesName,
       onChangeSpeciesName: () => {}, // jest.fn(),
+      validate: () => {
+        return [];
+      }, // jest.fn(),
     };
 
     render(<SpeciesName {...requiredProps} />);
@@ -44,6 +50,9 @@ describe(`<SpeciesName />`, () => {
     const requiredProps: SpeciesNameProps = {
       speciesName: "",
       onChangeSpeciesName: mockOnSpeciesNameChange,
+      validate: () => {
+        return [];
+      }, // jest.fn(),
     };
 
     render(<SpeciesName {...requiredProps} />);

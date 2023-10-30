@@ -21,3 +21,8 @@ button {
   padding: 5px;
   margin: 5px;
 }
+
+.errorMsg {
+  color: red;
+  font-size: small;
+}
