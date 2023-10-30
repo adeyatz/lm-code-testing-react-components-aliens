@@ -34,16 +34,15 @@ describe(`<ReasonForSparing />`, () => {
     expect(textArea).not.toBeNull();
     expect(textArea).toHaveAttribute("id", "reasonForSparing");
 
-    /*
-     * WOW, I REALLY DON'T KNOW WHY THIS DOESN'T WORK. TEXT AREA ONLY HAS ATTRIBUTES FOR ID. IT DOESN'T HAVE ANY ATRTIBUTE
-     * FOR VALUE. HOW ARE YOU MEANT TO TEST ITS VALUE WHEN IT DOESN'T HAVE ONE. THIS REACT STUFF IS REALLY REALLY FLAKEY
-     */
-    textArea
-      .getAttributeNames()
-      .forEach((attr) => console.log("attribute:", attr));
-    console.log("Has value attribute: ", textArea.hasAttribute("value"));
-    console.log("value", textArea.getAttribute("value"));
-    expect(textArea).toHaveAttribute("value", testReason); // THIS TEST FAILS, THERE IS NO ATTRIBUTE VALUE, EVEN THOUGH THERE CLEARLY IS
+    console.log("TextContent", textArea.textContent);
+
+    // textArea
+    //   .getAttributeNames()
+    //   .forEach((attr) => console.log("attribute:", attr));
+    // console.log("Has value attribute: ", textArea.hasAttribute("value"));
+    // console.log("value", textArea.getAttribute("value"));
+    // expect(textArea).toHaveAttribute("value", testReason); // THIS TEST FAILS, THERE IS NO ATTRIBUTE VALUE
+    expect(textArea.textContent).toEqual(testReason);
   });
 
   test(`Given the user types 'martians are great' 
