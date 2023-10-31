@@ -9,7 +9,10 @@ describe(`<NumberOfBeings />`, () => {
         Then the text 'Number of Beings' should be present`, () => {
     const requiredProps: NumberOfBeingsProps = {
       numberOfBeings: "1000000",
-      onChangeNumberOfBeings: () => {}, // jest.fn(),
+      onChangeNumberOfBeings: () => {},
+      validate: () => {
+        return [];
+      },
     };
 
     render(<NumberOfBeings {...requiredProps} />);
@@ -28,6 +31,7 @@ describe(`<NumberOfBeings />`, () => {
       <NumberOfBeings
         numberOfBeings={numberOfBeings}
         onChangeNumberOfBeings={mockUpdate}
+        validate={() => []}
       />
     );
     const input = screen.getByRole("textbox");
@@ -44,6 +48,7 @@ describe(`<NumberOfBeings />`, () => {
       <NumberOfBeings
         numberOfBeings={numberOfBeings}
         onChangeNumberOfBeings={mockUpdate}
+        validate={() => []}
       />
     );
     const input = screen.getByRole("textbox");
@@ -58,6 +63,9 @@ describe(`<NumberOfBeings />`, () => {
     const requiredProps: NumberOfBeingsProps = {
       numberOfBeings: "",
       onChangeNumberOfBeings: mockOnChangeNumberOfBeings,
+      validate: () => {
+        return [];
+      },
     };
 
     render(<NumberOfBeings {...requiredProps} />);

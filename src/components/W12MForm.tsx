@@ -51,6 +51,19 @@ const W12MForm = () => {
     return errorList;
   }
 
+  function validateNumberOfBeings(numberOfBeings: string): string[] {
+    const errorList: string[] = [];
+
+    if (numberOfBeings.match(/[^0-9]/)) {
+      errorList.push("Number of Beings can only contain numbers 0-9");
+    }
+
+    if (parseInt(numberOfBeings) < 1000000000) {
+      errorList.push("Number of Beings must be at least 1000000000");
+    }
+    return errorList;
+  }
+
   return (
     <section className="w12MForm">
       <W12MHeader />
@@ -68,6 +81,7 @@ const W12MForm = () => {
       <NumberOfBeings
         numberOfBeings={numberOfBeings}
         onChangeNumberOfBeings={setNumberOfBeings}
+        validate={validateNumberOfBeings}
       />
 
       <WhatIs2Plus2 answer={whatIs2Plus2} onChangeSelection={setWhatIs2Plus2} />
