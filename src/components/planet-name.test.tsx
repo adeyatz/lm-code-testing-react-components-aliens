@@ -9,7 +9,10 @@ describe(`<PlanetName />`, () => {
         Then the text 'Planet Name' should be present`, () => {
     const requiredProps: PlanetNameProps = {
       planetName: "earth",
-      onChangePlanetName: () => {}, // jest.fn(),
+      onChangePlanetName: () => {},
+      validate: () => {
+        return [];
+      },
     };
 
     render(<PlanetName {...requiredProps} />);
@@ -24,7 +27,10 @@ describe(`<PlanetName />`, () => {
     const testPlanetName = "mars";
     const requiredProps: PlanetNameProps = {
       planetName: testPlanetName,
-      onChangePlanetName: () => {}, // jest.fn(),
+      onChangePlanetName: () => {},
+      validate: () => {
+        return [];
+      },
     };
 
     render(<PlanetName {...requiredProps} />);
@@ -44,6 +50,9 @@ describe(`<PlanetName />`, () => {
     const requiredProps: PlanetNameProps = {
       planetName: "",
       onChangePlanetName: mockOnPlanetNameChange,
+      validate: () => {
+        return [];
+      },
     };
 
     render(<PlanetName {...requiredProps} />);

@@ -18,7 +18,8 @@ const DisplayFormEntries: React.FC<DisplayFormEntriesProps> = ({
   /*
    * Need to call setState as a side effect, (or in an event handler) to prevent a race condition, or so it would seem
    * I'm sure there must be a better way to do this - it can't be an unusual a scenario for a Web app to need to do this
-   * I can't find a suitable event that gets fired when the value of the textArea is changed other than by a User typing
+   * However I can't find a suitable event that gets fired when the value of the textArea is changed other than by a
+   * User typing into the textArea
    */
   useEffect(() => {
     if (inSubmit) {

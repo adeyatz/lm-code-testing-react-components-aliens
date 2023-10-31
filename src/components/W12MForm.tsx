@@ -25,7 +25,7 @@ const W12MForm = () => {
   }
 
   function validateSpeciesName(speciesName: string): string[] {
-    const errorList = [];
+    const errorList: string[] = [];
 
     if (speciesName.length < 3 || speciesName.length > 23) {
       errorList.push("Species Name must be between 3 and 23 characters");
@@ -38,6 +38,19 @@ const W12MForm = () => {
     return errorList;
   }
 
+  function validatePlanetName(planetName: string): string[] {
+    const errorList: string[] = [];
+
+    if (planetName.length < 2 || planetName.length > 49) {
+      errorList.push("Planet Name must be between 2 and 49 characters");
+    }
+
+    if (planetName.match(/[^a-zA-Z0-9]/)) {
+      errorList.push("Planet Name cannot contain special characters");
+    }
+    return errorList;
+  }
+
   return (
     <section className="w12MForm">
       <W12MHeader />
@@ -46,7 +59,11 @@ const W12MForm = () => {
         onChangeSpeciesName={setSpeciesName}
         validate={validateSpeciesName}
       />
-      <PlanetName planetName={planetName} onChangePlanetName={setPlanetName} />
+      <PlanetName
+        planetName={planetName}
+        onChangePlanetName={setPlanetName}
+        validate={validatePlanetName}
+      />
 
       <NumberOfBeings
         numberOfBeings={numberOfBeings}
