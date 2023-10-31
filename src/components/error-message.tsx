@@ -2,9 +2,10 @@ interface ErrorMessageProps {
   message: string[];
 }
 export default function ErrorMessage(props: ErrorMessageProps) {
+  //  console.log("Error Msg:", props.message);
   return (
     <div className="errorMsg">
-      {props.message.length > 0 && props.message.join("<br />")}
+      {props.message && props.message.join("<br />")}
     </div>
   );
 }

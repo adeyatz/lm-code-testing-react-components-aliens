@@ -15,14 +15,6 @@ const PlanetName: React.FC<PlanetNameProps> = ({
 
   return (
     <>
-      {/* <label htmlFor="planetName">Planet Name</label>
-      <input
-        id="planetName"
-        type="text"
-        value={planetName}
-        onChange={(e) => onChangePlanetName(e.target.value)}
-      />
-      <ErrorMessage message={errorMessage} /> */}
       <label>
         Planet Name
         <input
