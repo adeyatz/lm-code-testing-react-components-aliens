@@ -16,6 +16,7 @@ label {
 }
 
 input,
+textarea,
 select,
 button {
   padding: 5px;

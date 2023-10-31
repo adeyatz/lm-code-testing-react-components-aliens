@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import W12MHeader from "./W12MHeader";
 import SpeciesName from "./species-name";
 import PlanetName from "./planet-name";
@@ -12,7 +12,7 @@ const W12MForm = () => {
   const [planetName, setPlanetName] = useState("earth");
   const [numberOfBeings, setNumberOfBeings] = useState("4");
   const [whatIs2Plus2, setWhatIs2Plus2] = useState("4");
-  const [reason, setReason] = useState("Reason goes here");
+  const [reason, setReason] = useState("Reason goes here 😆");
   const [inSubmit, setInSubmit] = useState(false);
 
   function logValues() {
@@ -74,6 +74,16 @@ const W12MForm = () => {
     return errorList;
   }
 
+  function validateReason(reason: string): string[] {
+    const errorList: string[] = [];
+
+    if (reason.length < 17 || reason.length > 153) {
+      errorList.push("Reason must be between 17 and 153 characters");
+    }
+
+    return errorList;
+  }
+
   return (
     <section className="w12MForm">
       <W12MHeader />
@@ -99,7 +109,11 @@ const W12MForm = () => {
         onChangeSelection={setWhatIs2Plus2}
         validate={validateWhatIs2Plus2}
       />
-      <ReasonForSparing reason={reason} onChangeReason={setReason} />
+      <ReasonForSparing
+        reason={reason}
+        onChangeReason={setReason}
+        validate={validateReason}
+      />
       <button onClick={logValues}>Submit</button>
       <DisplayFormEntries
         inSubmit={inSubmit}

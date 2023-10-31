@@ -3,7 +3,7 @@ import ErrorMessage from "./error-message";
 export interface WhatIs2Plus2Props {
   answer: string;
   onChangeSelection: (value: string) => void;
-  validate: (selection: string) => string[];
+  validate: (answer: string) => string[];
 }
 
 export const WhatIs2Plus2: React.FC<WhatIs2Plus2Props> = ({

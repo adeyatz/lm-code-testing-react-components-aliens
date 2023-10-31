@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import ReasonForSparing, { ReasonForSparingProps } from "./reason-for-sparing";
-import { useEffect } from "react";
 
 describe(`<ReasonForSparing />`, () => {
   test(`Given the required props, 
@@ -10,7 +9,10 @@ describe(`<ReasonForSparing />`, () => {
         Then the text 'Reason for sparinge' should be present`, () => {
     const requiredProps: ReasonForSparingProps = {
       reason: "",
-      onChangeReason: () => {}, // jest.fn(),
+      onChangeReason: () => {},
+      validate: () => {
+        return [];
+      },
     };
 
     render(<ReasonForSparing {...requiredProps} />);
@@ -25,7 +27,10 @@ describe(`<ReasonForSparing />`, () => {
     const testReason = "because humans are a superior race";
     const requiredProps: ReasonForSparingProps = {
       reason: testReason,
-      onChangeReason: () => {}, // jest.fn(),
+      onChangeReason: () => {},
+      validate: () => {
+        return [];
+      },
     };
 
     render(<ReasonForSparing {...requiredProps} />);
@@ -55,6 +60,9 @@ describe(`<ReasonForSparing />`, () => {
     const requiredProps: ReasonForSparingProps = {
       reason: "",
       onChangeReason: mockOnReasonChange,
+      validate: () => {
+        return [];
+      },
     };
 
     render(<ReasonForSparing {...requiredProps} />);
