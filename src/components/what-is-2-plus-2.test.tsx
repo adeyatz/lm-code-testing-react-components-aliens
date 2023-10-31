@@ -9,7 +9,10 @@ describe(`<WhatIs2Plus2 />`, () => {
         Then the text 'What is 2+2' should be present`, () => {
     const requiredProps: WhatIs2Plus2Props = {
       answer: "4",
-      onChangeSelection: () => {}, // jest.fn(),
+      onChangeSelection: () => {},
+      validate: () => {
+        return [];
+      },
     };
 
     render(<WhatIs2Plus2 {...requiredProps} />);
@@ -26,6 +29,9 @@ describe(`<WhatIs2Plus2 />`, () => {
     const requiredProps: WhatIs2Plus2Props = {
       answer: "4",
       onChangeSelection: mockOnChangeSelection,
+      validate: () => {
+        return [];
+      },
     };
 
     render(<WhatIs2Plus2 {...requiredProps} />);

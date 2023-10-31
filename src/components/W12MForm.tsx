@@ -64,6 +64,16 @@ const W12MForm = () => {
     return errorList;
   }
 
+  function validateWhatIs2Plus2(selection: string): string[] {
+    const errorList: string[] = [];
+
+    if (selection !== "4") {
+      errorList.push("4 is the only valid option");
+    }
+
+    return errorList;
+  }
+
   return (
     <section className="w12MForm">
       <W12MHeader />
@@ -84,7 +94,11 @@ const W12MForm = () => {
         validate={validateNumberOfBeings}
       />
 
-      <WhatIs2Plus2 answer={whatIs2Plus2} onChangeSelection={setWhatIs2Plus2} />
+      <WhatIs2Plus2
+        answer={whatIs2Plus2}
+        onChangeSelection={setWhatIs2Plus2}
+        validate={validateWhatIs2Plus2}
+      />
       <ReasonForSparing reason={reason} onChangeReason={setReason} />
       <button onClick={logValues}>Submit</button>
       <DisplayFormEntries
